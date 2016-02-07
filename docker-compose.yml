@@ -35,3 +35,14 @@ redis:
   image: redis
   ports:
     - 6379:6379
+
+rabbitmq:
+  image: rabbitmq
+  hostname: rabbitmq
+  ports:
+    - 5672:5672
+
+consul:
+  image: gliderlabs/consul
+  net: host
+  command: agent -server -bootstrap -advertise 127.0.0.1 -ui -data-dir /tmp/consul
